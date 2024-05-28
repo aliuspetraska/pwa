@@ -1,0 +1,33 @@
+{
+  "name": "pwa",
+  "version": "1.0.0",
+  "description": "pwa",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aliuspetraska/pwa.git"
+  },
+  "keywords": [
+    "pwa"
+  ],
+  "author": "unknown",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aliuspetraska/pwa/issues"
+  },
+  "homepage": "https://github.com/aliuspetraska/pwa#readme",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "compression": "^1.7.4",
+    "express": "^4.19.2",
+    "mongodb": "^6.6.2",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.1"
+  }
+}
