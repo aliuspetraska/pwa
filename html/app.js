@@ -1,6 +1,19 @@
 let watchId;
 let isTracking = false;
 
+const channel = new BroadcastChannel('messages');
+
+channel.addEventListener('message', event => {
+    navigator.geolocation.getCurrentPosition(position => {
+        console.log(position);
+    }, 
+    {
+        enableHighAccuracy: false,
+        timeout: 360,
+        maximumAge: 0
+    });
+});
+
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/service-worker.js')
     .then(registration => {
