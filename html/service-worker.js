@@ -10,16 +10,15 @@ self.addEventListener('install', event => {
             ]);
         })
     );
-});
 
-self.addEventListener('activate', event => {
     const channel = new BroadcastChannel('messages');
-
-    event.waitUntil(self.clients.claim());
-
     setInterval(() => {
         channel.postMessage('update');
     }, 1000);
+});
+
+self.addEventListener('activate', event => {
+    event.waitUntil(self.clients.claim());
 });
 
 self.addEventListener('message', event => {
