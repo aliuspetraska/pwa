@@ -1,4 +1,6 @@
 self.addEventListener('install', event => {
+    console.log('sw install');
+
     event.waitUntil(
         caches.open('my-cache').then(cache => {
             return cache.addAll([
@@ -12,16 +14,21 @@ self.addEventListener('install', event => {
     );
 
     const channel = new BroadcastChannel('messages');
+    
     setInterval(() => {
         channel.postMessage('update');
     }, 1000);
 });
 
 self.addEventListener('activate', event => {
+    console.log('sw activate');
+
     event.waitUntil(self.clients.claim());
 });
 
 self.addEventListener('message', event => {
+    console.log('sw message');
+
     if (event.data && event.data.type === 'LOCATION_UPDATE') {
         const { latitude, longitude } = event.data;
         sendLocationToAPI(latitude, longitude);
