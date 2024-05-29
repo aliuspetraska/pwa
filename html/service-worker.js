@@ -16,7 +16,15 @@ self.addEventListener('install', event => {
     const channel = new BroadcastChannel('messages');
     
     setInterval(() => {
+        console.log('update');
+
         channel.postMessage('update');
+
+        if ("geolocation" in navigator) {
+            console.log('ok');
+        } else {
+            console.log('not ok');
+        }
     }, 1000);
 });
 
